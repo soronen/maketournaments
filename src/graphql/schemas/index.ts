@@ -1,12 +1,19 @@
-import path from 'path'
-import { loadFilesSync } from '@graphql-tools/load-files'
 import { mergeTypeDefs } from '@graphql-tools/merge'
-import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+import matchSchema from './Match.graphql'
+import notificationSchema from './Notification.graphql'
+import rulesetSchema from './Ruleset.graphql'
+import seriesSchema from './Series.graphql'
+import tournamentSchema from './Tournament.graphql'
+import userSchema from './User.graphql'
 
-const typesArray = loadFilesSync(path.join(__dirname, './*.graphql'))
-const typeDefs = mergeTypeDefs(typesArray)
+const typeDefs = mergeTypeDefs([
+  matchSchema,
+  notificationSchema,
+  rulesetSchema,
+  seriesSchema,
+  tournamentSchema,
+  userSchema,
+])
 
 export default typeDefs
