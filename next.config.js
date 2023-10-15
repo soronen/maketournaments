@@ -11,9 +11,35 @@ module.exports = {
     config.module.rules.push({
       test: /\.(graphql|gql)/,
       exclude: /node_modules/,
-      loader: 'webpack-graphql-loader',
+      loader: 'graphql-tag/loader',
     })
     return config
   },
   ...nextConfig,
 }
+
+// module.exports = {
+//   reactStrictMode: true,
+//   eslint: {
+//     ignoreDuringBuilds: true,
+//   },
+//   module: {
+//     rules: [
+//       // or "loaders" for webpack 1.x
+//       {
+//         test: /\.graphql?$/,
+//         use: [
+//           {
+//             loader: 'webpack-graphql-loader',
+//             options: {
+//               // validate: true,
+//               // schema: "./path/to/schema.json",
+//               // removeUnusedFragments: true
+//               // etc. See "Loader Options" below
+//             },
+//           },
+//         ],
+//       },
+//     ],
+//   },
+// }
